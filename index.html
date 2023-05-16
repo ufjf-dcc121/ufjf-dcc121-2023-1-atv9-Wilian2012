@@ -25,12 +25,15 @@
 
         </form>
         <p></p>
+        <h2>visitas passadas: </h2>
+        <ol></ol>
     </main>
     
     <script>
            const form=document.querySelector("form");
            form.addEventListener("submit", aoEnviar);
            const pnome = document.querySelector("p");
+           const ol = document.querySelector("ol");
 
            const spannome = document.querySelector("span");
 
@@ -43,11 +46,41 @@
                             const nomecompleto = `${nome} ${sobrenome}, ${idade} anos`;
                             console.log(nomecompleto);
                             pnome.innerHTML=`ola <span>${nomecompleto}<span>!`;
+                            
 
                                 form.reset();
                                 form.nome.focus();
 
-           }
+                                adicionaPessoa(nome, sobrenome, idade);
+           }  
+                                function adicionaPessoa(nome, sobrenome, idade){
+                            
+                            
+                                const li = document.createElement('li');
+                                const divPessoa= document.createElement('div');
+                                divPessoa.classList.add('pessoa');
+
+                                const spannome = document.createElement('div');
+                                spannome.classList.add('nome');
+                                spannome.textContent=nome;
+                                divPessoa.appendChild(spannome);
+
+                                const spansobrenome = document.createElement('div');
+                                spansobrenome.classList.add('sobrenome');
+                                spansobrenome.textContent=sobrenome;
+                                divPessoa.appendChild(spansobrenome);
+                               
+                                 const spanidade = document.createElement('div');
+                                spanidade.classList.add('idade');
+                                spanidade.textContent=idade;
+                                divPessoa.appendChild(spanidade);
+
+
+
+                                li.appendChild(divPessoa);
+                                ol.appendChild(li);}
+
+           
     </script>
 </body>
 </html>
