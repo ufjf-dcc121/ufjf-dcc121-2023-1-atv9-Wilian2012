@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana 9: forms</title>
+    <style>
+        p>span{
+            color: darkgreen;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1> semana  9: forms</h1>
-    </header>
+   </header>
     <main>
         <form action="">
           <input type="text" name="nome"/>
@@ -19,11 +24,15 @@
           <input type="reset" />
 
         </form>
+        <p></p>
     </main>
     
     <script>
            const form=document.querySelector("form");
            form.addEventListener("submit", aoEnviar);
+           const pnome = document.querySelector("p");
+
+           const spannome = document.querySelector("span");
 
            function aoEnviar(evento){
                             evento.preventDefault();
@@ -33,6 +42,7 @@
                             const idade = form.idade.valueAsNumber;
                             const nomecompleto = `${nome} ${sobrenome}, ${idade} anos`;
                             console.log(nomecompleto);
+                            pnome.innerHTML=`ola <span>${nomecompleto}<span>!`;
 
            }
     </script>
